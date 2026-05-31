@@ -48,6 +48,7 @@ export default function Page() {
       <PrecisionSystem />
       <Stats />
       <Reviews />
+      <Blog />
       <CTA />
       <Footer />
     </div>
@@ -65,7 +66,7 @@ function Nav() {
     return () => window.removeEventListener('scroll', onScroll);
   }, []);
 
-  const menu = ['학원소개', '시스템', '실적', '후기', '상담신청'];
+  const menu = ['학원소개', '시스템', '실적', '후기', '블로그', '상담신청'];
 
   return (
     <nav
@@ -674,6 +675,122 @@ function Reviews() {
               </div>
             </div>
           ))}
+        </div>
+      </div>
+    </section>
+  );
+}
+
+// ─────────────────────────────────────────────────
+//  블로그 섹션 - 만티 네이버 블로그 연결
+// ─────────────────────────────────────────────────
+function Blog() {
+  const BLOG_URL = 'https://blog.naver.com/manymath_';
+
+  return (
+    <section
+      id="블로그"
+      className="py-28 px-6 sm:px-10"
+      style={{ background: COLORS.cream }}
+    >
+      <div className="max-w-7xl mx-auto grid lg:grid-cols-12 gap-12 items-center">
+        {/* 좌측: 텍스트 + CTA */}
+        <div className="lg:col-span-6">
+          <SectionLabel num="06" eng="BLOG" kor="학습 일지" />
+          <h2
+            style={{
+              fontFamily: SERIF,
+              fontWeight: 900,
+              fontSize: 'clamp(28px, 4vw, 48px)',
+              lineHeight: 1.25,
+              marginTop: 24,
+            }}
+          >
+            선생님이 직접 쓰는
+            <br />
+            <span style={{ color: COLORS.crimson }}>오르라의 기록.</span>
+          </h2>
+          <p
+            style={{
+              marginTop: 24,
+              fontSize: 16,
+              lineHeight: 1.9,
+              color: COLORS.muted,
+              maxWidth: 500,
+            }}
+          >
+            시험 분석 사례, 학습 노하우, 학원에서 일어나는 진짜 이야기.
+            오르라의 깊이와 결을 블로그에서 직접 확인해 보세요.
+          </p>
+          <a
+            href={BLOG_URL}
+            target="_blank"
+            rel="noopener noreferrer"
+            className="inline-block mt-8 px-7 py-4 transition-all hover:opacity-90"
+            style={{
+              background: COLORS.ink,
+              color: COLORS.cream,
+              fontSize: 15,
+              letterSpacing: '0.05em',
+              fontWeight: 500,
+            }}
+          >
+            블로그 바로가기 →
+          </a>
+        </div>
+
+        {/* 우측: 큰 인용구 카드 */}
+        <div className="lg:col-span-6">
+          <div
+            className="p-10 relative"
+            style={{
+              background: COLORS.paper,
+              borderLeft: `3px solid ${COLORS.gold}`,
+            }}
+          >
+            <div
+              style={{
+                fontFamily: SERIF,
+                fontSize: 96,
+                color: COLORS.gold,
+                lineHeight: 0.7,
+                marginBottom: 16,
+                opacity: 0.6,
+              }}
+            >
+              "
+            </div>
+            <p
+              style={{
+                fontFamily: SERIF,
+                fontSize: 22,
+                lineHeight: 1.7,
+                color: COLORS.ink,
+                fontWeight: 400,
+              }}
+            >
+              아이마다 막힌 지점이 다릅니다.
+              <br />
+              같은 단원이라도 누군가는 정의에서,
+              <br />
+              누군가는 계산에서, 누군가는 응용에서 멈춥니다.
+              <br />
+              <span style={{ color: COLORS.crimson, fontWeight: 700 }}>
+                그 지점을 정확히 보는 일
+              </span>
+              부터 시작합니다.
+            </p>
+            <div
+              style={{
+                marginTop: 24,
+                fontSize: 12,
+                letterSpacing: '0.15em',
+                color: COLORS.muted,
+              }}
+            >
+              — 블로그 中
+            </div>
+          </div>
         </div>
       </div>
     </section>
